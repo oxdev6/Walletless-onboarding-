@@ -1,0 +1,22 @@
+app = "YOUR-RELAYER-APP-NAME"
+primary_region = "ams"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "8787"
+
+[[services]]
+  internal_port = 8787
+  protocol = "tcp"
+  [services.concurrency]
+    hard_limit = 50
+    soft_limit = 25
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+

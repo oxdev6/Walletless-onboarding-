@@ -1,0 +1,25 @@
+name: Deploy Relayer to Fly.io
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'apps/relayer/**'
+      - 'pnpm-lock.yaml'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: Deploy
+        working-directory: apps/relayer
+        run: |
+          flyctl deploy --remote-only --build-arg BUILDKIT_INLINE_CACHE=1 \
+            --env AUTH_SECRET=${{ secrets.AUTH_SECRET }} \
+            --env RELAYER_PRIVATE_KEY=${{ secrets.RELAYER_PRIVATE_KEY }} \
+            --env VITE_PUSH_RPC=${{ secrets.VITE_PUSH_RPC }}
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+

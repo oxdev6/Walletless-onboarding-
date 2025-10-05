@@ -44,6 +44,21 @@ import { OnboardProvider, OnboardKit } from '@pushlabs/onboardkit'
 </OnboardProvider>
 ```
 
+## Deploy
+
+### Demo (Vercel)
+1) Add GitHub repository to Vercel
+2) Set Project Dir to `apps/demo`
+3) Set Environment Variable `VITE_RELAYER_URL=https://YOUR-RELAYER-DOMAIN`
+4) Or use GitHub Action secrets:
+   - `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`, `VITE_RELAYER_URL`
+
+### Relayer (Fly.io)
+1) Install flyctl, run `fly launch` in `apps/relayer` (or edit `fly.toml` app name)
+2) Secrets:
+   - `FLY_API_TOKEN`, `AUTH_SECRET`, `RELAYER_PRIVATE_KEY`, `VITE_PUSH_RPC`
+3) Push main branch; GitHub Action will deploy.
+
 ## Project G.U.D Submission
 
 Built for Push Chain's Project G.U.D Deploython (Sept 18 - Oct 13, 2025)
