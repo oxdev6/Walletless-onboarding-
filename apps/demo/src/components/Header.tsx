@@ -21,9 +21,7 @@ export function Header() {
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center brand-gradient text-white font-bold text-sm">
-              <span>P</span>
-            </div>
+            <img src="/src/assets/buidl-logo.svg" alt="BUIDL" className="w-8 h-8 rounded-lg" />
             <span className="text-white font-semibold tracking-tight">Any Chain, Any App, All Users. One Push Chain.</span>
           </div>
 

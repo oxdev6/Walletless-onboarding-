@@ -5,7 +5,7 @@ export default function Navbar() {
         <nav className="rounded-2xl border border-white/10 px-4 py-3 flex items-center justify-between bg-black/40 backdrop-blur">
           {/* left - logo */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-xl gradient-primary shadow-glow-secondary" />
+            <img src="/src/assets/buidl-logo.svg" alt="BUIDL" className="w-8 h-8 rounded-xl shadow-glow-secondary" />
             <span className="font-semibold tracking-wide">Any Chain, Any App, All Users. One Push Chain.</span>
           </div>
 
